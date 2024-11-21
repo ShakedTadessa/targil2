@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class SharedData 
 {
+	
 	private ArrayList<Integer> array = new ArrayList<>();
 	private boolean [] winArray;
 	private boolean flag;
