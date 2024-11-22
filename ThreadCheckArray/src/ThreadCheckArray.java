@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ThreadCheckArray implements Runnable 
 {
 	private boolean flag;
@@ -12,13 +14,13 @@ public class ThreadCheckArray implements Runnable
 		synchronized (sd) 
 		{
 			array = new ArrayList<>();
-		      for(int num : sd.getArray()){
-		        array.add(num);
+		    for(int num : sd.getArray()){
+		        array.add(num);
 
 		}		
-		winArray = new boolean[array.length];
+         winArray = new boolean[array.size()];
 	}
-	
+	}
 	void rec(int n, int b)
 	{
 		synchronized (sd) 
@@ -53,12 +55,12 @@ public class ThreadCheckArray implements Runnable
 	}
 
 	public void run() {
-		if (array.length != 1)
+		if (array.size() != 1)
 			if (Thread.currentThread().getName().equals("thread1"))
 				rec(array.size()-1, b - array.get(array.size()-1));
 			else 
-				rec(array.length-1, b);
-		if (array.length == 1)
+				rec(array.size()-1, b);
+		if (array.size() == 1)
 			if (b == array.get(0) && !flag)
 			{
 				winArray[0] = true;
